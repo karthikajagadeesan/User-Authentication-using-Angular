@@ -1,0 +1,109 @@
+
+<section class="profile-block">
+    <div class="container">
+      <div class="row">
+        <div class="col profile-sec">
+          <h2 class="text-center">Profile Now</h2>
+          <form
+            class="profile-form"
+            action="update_profile.php"
+            method="post"
+            #f="ngForm"
+          novalidate
+          (ngSubmit)="f.form.valid && onsubmit()"
+          >
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="text-uppercase">Date of Birth</label>
+  
+              <input
+                type="date"
+                class="form-control"
+                name="dob"
+                placeholder="dob"
+                id=""
+                [(ngModel)]="formdata.dob"
+              #dob="ngModel"
+              required
+              />
+              <span
+                class="text-danger"*ngIf="this.submit&&dob.errors?.['required']"
+                >
+                Date of birth is required.
+              </span>
+              </div>
+
+              <div class="form-group">
+              <label for="exampleInputEmail1" class="text-uppercase">AGE</label>
+  
+              <input
+                type="number"
+                class="form-control"
+                name="age"
+                placeholder="age"
+                id=""
+                [(ngModel)]="formdata.age"
+              #age="ngModel"
+              required
+              />
+              <span
+                class="text-danger"
+                *ngIf="this.submit&&age.errors?.['required']"
+                >
+                Age is required.
+              </span>
+              </div>
+
+              <div class="form-group">
+              <label for="exampleInputEmail1" class="text-uppercase">CONTACT NUMBER</label>
+  
+              <input
+                type="number"
+                class="form-control"
+                name="contact number"
+                placeholder="contact number"
+                id=""
+                [(ngModel)]="formdata.contactnumber"
+              #contactnumber="ngModel"
+              required
+              length="10"
+              />
+              <span
+                class="text-danger"*ngIf="this.submit&&contactnumber.errors?.['required']"
+                >
+                contact number is required.
+              </span>
+              <span
+              class="text-danger"
+              *ngIf="this.submit&&contactnumber.errors?.['length']"
+            >
+              length of contact number is 10 number.
+            </span>
+              </div>
+  
+            <div class="form-group">
+              <span class="text-danger"*ngIf="this.errorMessage" >
+                <p [innerText]="this.errorMessage"></p>
+              </span>
+              <div class="text-center"*ngIf="this.loading" >
+                <div class="spinner-border text-primary" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+  
+              <input
+                type="submit"
+                class="btn btn-login float-right"
+                value="Submit"
+                (click)="submit = true" [disabled]="this.loading"
+              />
+            </div>
+            
+          </form>
+        </div>
+        </div>
+        </div>
+        </section>
+      
+    
+  
+  

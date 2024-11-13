@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a
+      class="navbar-brand"
+      style="margin-left: 200px"
+      href="javascript:void(0)"
+      routerLink="/">Karthika</a>
+  
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarsExampleDefault"
+      aria-controls="navbarsExampleDefault"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav ml-auto" style="margin-right: 200px">
+       
+        <ng-container *ngIf="this.auth.isAuthenticated();
+        then authenticated; 
+        else notAuthenticated">
+        </ng-container> 
+
+        <ng-template #notAuthenticated>
+          <li class="nav-link" routerLink="login">
+            Login
+          </li>
+          <li class="nav-link" routerLink="register">
+            Register
+          </li>
+          </ng-template>
+
+          <ng-template #authenticated>
+          <li class="nav-link" routerLink="profile">
+         Profile
+          </li>
+          <li class="nav-link" (click)="logout()"  >
+            Logout
+          </li>
+          </ng-template>
+          
+      </ul>
+    </div>
+  </nav>
+  
+  

@@ -1,0 +1,14 @@
+{
+    "name": "pravee/server",
+    "type": "project",
+    "require": {
+        "mongodb/mongodb": "1.0",
+        "predis/predis": "^2.2",
+        "firebase/php-jwt": "^6.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pravee\\Server\\": "src/"
+        }
+    }
+}
